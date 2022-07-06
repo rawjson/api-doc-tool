@@ -33,7 +33,7 @@ export default function API_Dashboard() {
 
   return (
     <>
-      <div className='flex w-64 md:flex-col fixed inset-y-0'>
+      <div className='flex w-64 md:flex-col fixed inset-y-0 z-20'>
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className='flex flex-col flex-grow pt-5 bg-slate-100 dark:bg-slate-700 overflow-y-auto scrollbar'>
           <div className='flex items-center flex-shrink-0 px-4 space-x-4'>
