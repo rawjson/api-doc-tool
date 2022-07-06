@@ -4,12 +4,12 @@ body {
 }
 
 pre {
-  outline: 1px solid rgb(156 163 175);
+  outline: none;
   padding: 5px;
   margin: 5px;
 }
 .string {
-  color: rgb(1, 128, 47);
+  color: rgb(0, 160, 59);
 }
 .number {
   color: rgb(167, 125, 0);
@@ -21,7 +21,22 @@ pre {
   color: rgb(107 114 128);
 }
 .key {
-  color: rgb(129, 129, 129);
+  color: rgb(165, 165, 165);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(180, 180, 180);
+  border-radius: 100vh;
 }
 
 @tailwind base;

@@ -1,11 +1,11 @@
-const entities = [
+let entities = [
   {
     name: 'Introduction',
     defaultOpen: true,
     description: [
       'This API reference is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.',
-      'You can use this API reference in test mode, which doesn`t affect your live data. The API key you use to authenticate the request determines whether the request is live mode or test mode.',
-      'This API reference differs for every account as we release new versions and tailor functionality. These docs are customized to your version of the API.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     ],
     info: {
       heading: 'Just getting started?',
@@ -195,7 +195,7 @@ const entities = [
           'Creates a new user in the database with a unique email address. To create a new user provide the paramters listed below.',
         endpoint: {
           type: 'post',
-          url: '/users/create',
+          url: '/v1/users/create',
           parameters: [
             {
               required: true,
@@ -253,7 +253,7 @@ const entities = [
         description: 'Retrieves an existing user from the database when id is provided.',
         endpoint: {
           type: 'get',
-          url: '/retrieve/:id',
+          url: '/v1/retrieve/:id',
           parameters: [
             {
               required: true,
@@ -295,7 +295,7 @@ const entities = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         endpoint: {
           type: 'patch',
-          url: '/update-password',
+          url: '/v1/update-password',
           parameters: [
             {
               required: true,
@@ -332,7 +332,7 @@ const entities = [
         name: 'Update user',
         endpoint: {
           type: 'patch',
-          url: '/update/:id',
+          url: '/v1/update/:id',
           parameters: [
             {
               required: false,
@@ -377,7 +377,7 @@ const entities = [
         name: 'Update plan of user',
         endpoint: {
           type: 'patch',
-          url: '/plan/:id/update',
+          url: '/v1/plan/:id/update',
           parameters: [
             {
               required: false,
@@ -434,7 +434,7 @@ const entities = [
         description: 'Returns the current available plan of the user',
         endpoint: {
           type: 'get',
-          url: '/plan/:id',
+          url: '/v1/plan/:id',
           parameters: [
             {
               required: true,
@@ -465,7 +465,7 @@ const entities = [
         description: 'Deletes the user with all products, images, files and the associated stripe connected account.',
         endpoint: {
           type: 'delete',
-          url: '/:email OR :id',
+          url: '/v1/:email OR :id',
           parameters: [
             {
               required: true,
@@ -564,7 +564,7 @@ const entities = [
           'Creates a new product in the database with a unique id. To create a new product provide the paramters listed below.',
         endpoint: {
           type: 'post',
-          url: '/products/create',
+          url: '/v1/products/create',
           parameters: [
             {
               required: false,
@@ -642,7 +642,7 @@ const entities = [
           'Creates a new product in the database with a unique id but same data. To create a duplicate product provide the paramters listed below.',
         endpoint: {
           type: 'post',
-          url: '/products/:id/duplicate',
+          url: '/v1/products/:id/duplicate',
           parameters: [
             {
               required: true,
@@ -700,7 +700,7 @@ const entities = [
           'Updates an already created product in the database. To update product provide the paramters listed below.',
         endpoint: {
           type: 'patch',
-          url: '/products/:id/update',
+          url: '/v1/products/:id/update',
           parameters: [
             {
               required: true,
@@ -781,7 +781,7 @@ const entities = [
         description: 'To retrieve a product from the database, provide the paramters listed below.',
         endpoint: {
           type: 'get',
-          url: '/products/:id',
+          url: '/v1/products/:id',
           parameters: [
             {
               required: true,
@@ -839,7 +839,7 @@ const entities = [
           'To retrieve all products from the database or filter them by providing the paramters listed below.',
         endpoint: {
           type: 'get',
-          url: '/products',
+          url: '/v1/products',
           parameters: [
             {
               required: false,
@@ -887,7 +887,8 @@ const entities = [
                   id: 'prod_aUOuSXAFyNxko9gevukGm',
                   status: 'DRAFT',
                   title: 'Lorem ipsum dolor sit amet, consectetur ...',
-                  description: 'Lorem ipsum dolor sit amet, consectetur.....',
+                  description:
+                    'Lorem ipsum dolor sit amet, consectetur.....................................................',
                   createdAt: 1654574527,
                   has_more: ['...'],
                 },
@@ -926,7 +927,7 @@ const entities = [
         description: 'To delete a product from the database provide the paramters listed below.',
         endpoint: {
           type: 'delete',
-          url: '/products/:id',
+          url: '/v1/products/:id',
           parameters: [
             {
               required: true,
@@ -938,6 +939,408 @@ const entities = [
             data: {
               raw: [],
               affected: 1,
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    name: 'Orders',
+    controller: 'orders',
+    defaultOpen: false,
+    description: [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    ],
+    attributes: [
+      {
+        id: 1,
+        name: 'id',
+        data_type: 'string',
+        description: 'Unique identifier for the object.',
+      },
+      {
+        id: 2,
+        name: 'order_number',
+        data_type: 'number',
+        description:
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      },
+      {
+        id: 3,
+        name: 'status',
+        data_type: 'string',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+      {
+        id: 4,
+        name: 'created',
+        data_type: 'timestamp',
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      },
+      {
+        id: 5,
+        name: 'receipt_url',
+        data_type: 'string',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+      {
+        id: 6,
+        name: 'cust_email',
+        data_type: 'string',
+        description:
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      },
+      {
+        id: 7,
+        name: 'user_id',
+        data_type: 'string',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+    ],
+    services: [
+      {
+        id: 1,
+        name: 'Retrieve order',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'get',
+          url: '/v1/orders/:id',
+          parameters: [
+            {
+              required: true,
+              attribute: 1,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              id: 'order_SKIyHMnoTD6Pf9kzeaX1l',
+              order_number: 53,
+              created: 1651049523,
+              status: 'complete',
+              receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+              cust_email: 'john@doe.com',
+              user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+            },
+          },
+        },
+      },
+      {
+        id: 2,
+        name: 'Retrieve all orders',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'get',
+          url: '/v1/orders',
+          parameters: [
+            {
+              required: false,
+              attribute: 2,
+            },
+            {
+              required: false,
+              attribute: 3,
+            },
+            {
+              required: false,
+              attribute: 4,
+            },
+            {
+              required: false,
+              attribute: 6,
+            },
+            {
+              required: false,
+              attribute: 7,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              total: 154,
+              limit: 10,
+              skip: 0,
+              data: [
+                {
+                  id: 'order_SKIyHMnoTD6Pf9kzeaX1l',
+                  order_number: 53,
+                  created: 1651049523,
+                  status: 'complete',
+                  receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+                  cust_email: 'john@doe.com',
+                  user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+                },
+                {
+                  id: 'order_bboMuZ3LH59kPG4rehmUK',
+                  order_number: 51,
+                  created: 1651049377,
+                  status: 'incomplete',
+                  receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+                  cust_email: 'john@doe.com',
+                  user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+                },
+                {
+                  id: 'order_xX2nCPwQpG3fZlwxgcO2',
+                  order_number: 43,
+                  created: 1651030755,
+                  status: 'complete',
+                  receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+                  cust_email: 'john@doe.com',
+                  user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+                },
+                {
+                  id: 'order_gVDhNeLEbC8LIvlTZ16EU',
+                  order_number: 42,
+                  created: 1651030755,
+                  status: 'complete',
+                  receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+                  cust_email: 'john@doe.com',
+                  user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+                },
+                {
+                  id: 'order_P3n3IhM4oFDOwJcVvrpGs',
+                  order_number: 41,
+                  created: 1651030755,
+                  status: 'complete',
+                  receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+                  cust_email: 'john@doe.com',
+                  user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+                },
+              ],
+            },
+          },
+        },
+      },
+      {
+        id: 3,
+        name: 'Delete order',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'delete',
+          url: '/v1/orders/:id',
+          parameters: [
+            {
+              required: true,
+              attribute: 1,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              id: 'order_SKIyHMnoTD6Pf9kzeaX1l',
+              order_number: 53,
+              created: 1651049523,
+              status: 'complete',
+              receipt_url: 'https://orders.yoursite.com/receipts/rec_xxxxx',
+              cust_email: 'john@doe.com',
+              user_id: 'user_rehLH59kPG4rMuZ3MuZ3',
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    name: 'Customers',
+    controller: 'customers',
+    defaultOpen: true,
+    description: [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    ],
+    attributes: [
+      {
+        id: 1,
+        name: 'id',
+        data_type: 'string',
+        description: 'Unique identifier for the object.',
+      },
+      {
+        id: 2,
+        name: 'address',
+        data_type: 'hash',
+        description:
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      },
+      {
+        id: 3,
+        name: 'description',
+        data_type: 'string',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+      {
+        id: 4,
+        name: 'email',
+        data_type: 'string',
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      },
+      {
+        id: 5,
+        name: 'name',
+        data_type: 'string',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+      {
+        id: 6,
+        name: 'phone',
+        data_type: 'string',
+        description:
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      },
+      {
+        id: 7,
+        name: 'created',
+        data_type: 'timsestamp',
+        description:
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      },
+    ],
+    services: [
+      {
+        id: 1,
+        name: 'Create a customer',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'post',
+          url: '/v1/customers/create',
+          parameters: [
+            {
+              required: true,
+              attribute: 4,
+            },
+            {
+              required: false,
+              attribute: 5,
+            },
+            {
+              required: false,
+              attribute: 6,
+            },
+            {
+              required: false,
+              attribute: 2,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              id: 'cus_9utnxg47pWjV1e',
+              object: 'customer',
+              address: null,
+              balance: 0,
+              created: 1484209932,
+              currency: 'usd',
+              default_source: null,
+              delinquent: true,
+              description: 'My First Test Customer ',
+              discount: null,
+              email: null,
+              name: null,
+              next_invoice_sequence: 125356,
+              phone: null,
+            },
+          },
+        },
+      },
+      {
+        id: 2,
+        name: 'Retrieve a customer',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'get',
+          url: '/v1/customers/:id',
+          parameters: [
+            {
+              required: true,
+              attribute: 1,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              id: 'cus_9utnxg47pWjV1e',
+              object: 'customer',
+              address: null,
+              balance: 0,
+              created: 1484209932,
+              currency: 'usd',
+              default_source: null,
+              delinquent: true,
+              description: 'My First Test Customer ',
+              discount: null,
+              email: null,
+              name: null,
+              next_invoice_sequence: 125356,
+              phone: null,
+            },
+          },
+        },
+      },
+      {
+        id: 3,
+        name: 'Update a customer',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        endpoint: {
+          type: 'patch',
+          url: '/v1/customers/:id',
+          parameters: [
+            {
+              required: true,
+              attribute: 1,
+            },
+            {
+              required: false,
+              attribute: 2,
+            },
+            {
+              required: false,
+              attribute: 3,
+            },
+            {
+              required: false,
+              attribute: 4,
+            },
+            {
+              required: false,
+              attribute: 5,
+            },
+            {
+              required: false,
+              attribute: 6,
+            },
+          ],
+          response: {
+            type: 'application/json',
+            data: {
+              id: 'cus_9utnxg47pWjV1e',
+              object: 'customer',
+              address: null,
+              balance: 0,
+              created: 1484209932,
+              currency: 'usd',
+              default_source: null,
+              delinquent: true,
+              description: 'My First Test Customer ',
+              discount: null,
+              email: null,
+              name: null,
+              next_invoice_sequence: 125356,
+              phone: null,
             },
           },
         },

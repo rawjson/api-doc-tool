@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 
-function RawJson({ Component, pageProps }) {
+function RawJsonTemplates({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
-export default RawJson;
+export default RawJsonTemplates;
