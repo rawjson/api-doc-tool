@@ -1,18 +1,6 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 pre {
@@ -21,19 +9,19 @@ pre {
   margin: 5px;
 }
 .string {
-  color: rgb(34 197 94);
+  color: rgb(1, 128, 47);
 }
 .number {
-  color: rgb(234 179 8);
+  color: rgb(167, 125, 0);
 }
 .boolean {
-  color: rgb(14 165 233);
+  color: rgb(0, 121, 177);
 }
 .null {
   color: rgb(107 114 128);
 }
 .key {
-  color: rgb(156 163 175);
+  color: rgb(129, 129, 129);
 }
 
 @tailwind base;
