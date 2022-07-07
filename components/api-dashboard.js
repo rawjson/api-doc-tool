@@ -36,9 +36,9 @@ export default function API_Dashboard() {
       <div className='flex w-64 md:flex-col fixed inset-y-0 z-20'>
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className='flex flex-col flex-grow pt-5 bg-slate-100 dark:bg-slate-700 overflow-y-auto scrollbar'>
-          <div className='flex items-center flex-shrink-0 px-4 space-x-4'>
-            <CodeIcon className='w-10 h-10 text-gray-700 dark:text-slate-300' />
-            <span className='text-gray-700 dark:text-slate-300 font-semibold text-xl'>API Reference</span>
+          <div className='flex items-center flex-shrink-0 px-4 space-x-4 text-gray-900 dark:text-slate-300'>
+            <CodeIcon className='w-10 h-10' />
+            <span className=' font-semibold text-xl'>API Reference</span>
           </div>
           <div className='my-10 flex-1 flex flex-col'>
             <nav className='flex-1 space-y-2'>
@@ -54,8 +54,8 @@ export default function API_Dashboard() {
                           className={classNames(
                             scrollposition > entity.offsetTop - 150 &&
                               scrollposition < entity.offsetTop + entity.offsetHeight - 150
-                              ? 'dark:text-white text-gray-700 border-l-4 border-slate-900 dark:border-white'
-                              : 'text-gray-700 dark:text-slate-300',
+                              ? 'dark:text-white text-gray-900 border-l-4 border-slate-900 dark:border-white'
+                              : 'text-gray-900 dark:text-slate-300',
                             'flex items-center justify-between text-base font-medium w-full group pr-10 pl-4',
                           )}
                         >
@@ -66,7 +66,7 @@ export default function API_Dashboard() {
                           {entity.services?.length ? (
                             <ChevronDownIcon
                               className={classNames(
-                                open ? 'rotate-0 text-gray-700 dark:text-slate-300' : '-rotate-90',
+                                open ? 'rotate-0 text-gray-900 dark:text-slate-300' : '-rotate-90',
                                 'w-5 h-5 transform',
                               )}
                             />
@@ -76,19 +76,17 @@ export default function API_Dashboard() {
                           <Disclosure.Panel className='text-sm font-medium py-2.5 mr-10'>
                             {entity.services?.map((service, i) => (
                               <ul key={i}>
-                                <a href={`#${service.name.toLowerCase().replace(/ /g, '-')}`}>
-                                  <li
-                                    className={classNames(
-                                      scrollposition > service.offsetTop - 200 &&
-                                        scrollposition < service.offsetTop + service.offsetHeight - 200
-                                        ? 'text-white bg-gray-800 dark:bg-slate-500 pl-7'
-                                        : 'text-gray-500 pl-8 hover:text-gray-700 dark:hover:text-slate-300 dark:text-slate-300',
-                                      'cursor-pointer py-1 rounded-r-md',
-                                    )}
-                                  >
-                                    {service.name}
-                                  </li>
-                                </a>
+                                <li
+                                  className={classNames(
+                                    scrollposition > service.offsetTop - 200 &&
+                                      scrollposition < service.offsetTop + service.offsetHeight - 200
+                                      ? 'text-white bg-gray-800 dark:bg-slate-500 pl-7'
+                                      : 'text-gray-700 pl-8 hover:text-gray-500 dark:hover:text-slate-300 dark:text-slate-300',
+                                    'cursor-pointer py-1 rounded-r-md',
+                                  )}
+                                >
+                                  <a href={`#${service.name.toLowerCase().replace(/ /g, '-')}`}>{service.name}</a>
+                                </li>
                               </ul>
                             ))}
                           </Disclosure.Panel>
@@ -147,9 +145,9 @@ export default function API_Dashboard() {
               <div className='w-full pt-16 px-8 max-w-7xl mx-auto'>
                 <div className='flex space-x-20 relative'>
                   <div className='w-full'>
-                    <h2 className='text-3xl font-semibold text-gray-700 dark:text-slate-300'>{entity.name}</h2>
+                    <h2 className='text-3xl font-semibold text-gray-900 dark:text-slate-300'>{entity.name}</h2>
                     {entity.description.map((p, i) => (
-                      <p key={i} className='mt-6 text-gray-500 dark:text-slate-300 max-w-xl'>
+                      <p key={i} className='mt-6 text-gray-700 dark:text-slate-300 max-w-xl'>
                         {p}
                       </p>
                     ))}
@@ -164,13 +162,13 @@ export default function API_Dashboard() {
                           {entity.attributes?.map((attr, i) => (
                             <tr key={i} className='flex flex-col'>
                               <td className='pt-4 font-medium flex items-center space-x-2'>
-                                <code className='text-gray-700 dark:text-slate-300 text-sm'>{attr.name}</code>
-                                <p className='text-gray-500 dark:text-slate-400 border border-gray-600 dark:border-slate-700 px-1 h-5 w-auto rounded text-xs'>
+                                <code className='text-gray-900 dark:text-slate-300 text-sm'>{attr.name}</code>
+                                <p className='text-gray-700 dark:text-slate-400 border border-gray-600 dark:border-slate-700 px-1 h-5 w-auto rounded text-xs'>
                                   {attr.data_type}
                                 </p>
                               </td>
                               <td
-                                className='text-sm pb-4 pt-2 font-normal text-gray-500 dark:text-slate-300'
+                                className='text-sm pb-4 pt-2 font-normal text-gray-700 dark:text-slate-300'
                                 dangerouslySetInnerHTML={{ __html: attr.description }}
                               />
                             </tr>
@@ -181,10 +179,10 @@ export default function API_Dashboard() {
                   </div>
                   {entity.info ? (
                     <div className='w-full mt-14 space-y-4'>
-                      <h2 className='text-xl font-semibold text-gray-700 dark:text-gray-300'>
+                      <h2 className='text-xl font-semibold text-gray-900 dark:text-gray-300'>
                         {entity.info.heading ?? null}
                       </h2>
-                      <p className='text-sm font-semibold text-gray-500 dark:text-gray-500'>
+                      <p className='text-sm font-semibold text-gray-700 dark:text-gray-700'>
                         {entity.info.description ?? null}
                       </p>
                       {entity.info.code_box.map((box, i) => (
@@ -193,9 +191,9 @@ export default function API_Dashboard() {
                           key={i}
                         >
                           <div className='text-sm flex space-x-2 bg-gray-200 dark:bg-slate-700 px-4 py-2 rounded-t-lg'>
-                            <h4 className='text-gray-500 dark:text-slate-300 uppercase font-medium'>{box.title}</h4>
+                            <h4 className='text-gray-600 dark:text-slate-300 uppercase font-medium'>{box.title}</h4>
                           </div>
-                          <div className='text-sm overflow-y-auto px-5 py-2 text-gray-500 dark:text-slate-300'>
+                          <div className='text-sm overflow-y-auto px-5 py-2 text-gray-700 dark:text-slate-300'>
                             <table>
                               <tbody>
                                 {box.rows.map((row, i) => (
@@ -220,7 +218,7 @@ export default function API_Dashboard() {
                   {entity.services ? (
                     <div className='bg-slate-100 dark:bg-slate-800 rounded-lg h-44 flex flex-col mt-14 w-full sticky top-20'>
                       <div className='text-sm flex space-x-2 bg-gray-200 dark:bg-slate-700 px-4 py-2 rounded-t-lg'>
-                        <h4 className='text-gray-500 dark:text-slate-300  uppercase font-medium'>Endpoints</h4>
+                        <span className='text-gray-600 dark:text-slate-300  uppercase font-medium'>Endpoints</span>
                       </div>
                       <div className='text-sm overflow-y-auto p-5 scrollbar'>
                         <table>
@@ -233,7 +231,7 @@ export default function API_Dashboard() {
                                       ept.type == 'post'
                                         ? 'text-green-500'
                                         : ept.type == 'get'
-                                        ? 'text-gray-700 dark:text-slate-300'
+                                        ? 'text-gray-900 dark:text-slate-300'
                                         : ept.type == 'patch'
                                         ? 'text-yellow-500'
                                         : ept.type == 'delete'
@@ -245,7 +243,7 @@ export default function API_Dashboard() {
                                     {ept.type}
                                   </span>
                                 </td>
-                                <td className='text-gray-500 dark:text-slate-400'>
+                                <td className='text-gray-700 dark:text-slate-400'>
                                   <code>{ept.url}</code>
                                 </td>
                               </tr>
@@ -276,8 +274,8 @@ export default function API_Dashboard() {
                       >
                         {/* left pane */}
                         <div className='w-full max-w-xl'>
-                          <h3 className='text-2xl font-medium text-gray-700 dark:text-slate-300'>{service.name}</h3>
-                          <p className='mt-6 text-gray-500 dark:text-slate-300'>{service.description}</p>
+                          <h3 className='text-2xl font-medium text-gray-900 dark:text-slate-300'>{service.name}</h3>
+                          <p className='mt-6 text-gray-700 dark:text-slate-300'>{service.description}</p>
 
                           <table className='mt-8 w-full'>
                             <thead>
@@ -291,17 +289,17 @@ export default function API_Dashboard() {
                               {service.endpoint.parameters.map((param, i) => (
                                 <tr key={i} className='flex flex-col'>
                                   <td className='text-xs pt-4 font-medium flex items-center space-x-2'>
-                                    <code className='text-gray-700 dark:text-slate-300'>
+                                    <code className='text-gray-900 dark:text-slate-300'>
                                       {param.custom ? param.custom.name : findAttribute(entity.attributes, param)?.name}
                                     </code>
-                                    <p className='text-gray-500 dark:text-slate-400 border border-gray-600 dark:border-slate-700 px-1 rounded h-5 w-auto'>
+                                    <p className='text-gray-700 dark:text-slate-400 border border-gray-600 dark:border-slate-700 px-1 rounded h-5 w-auto'>
                                       {param.custom
                                         ? param.custom.data_type
                                         : findAttribute(entity.attributes, param)?.data_type}
                                     </p>
                                     <code
                                       className={classNames(
-                                        param.required ? 'text-red-400' : 'text-gray-500 dark:text-slate-300',
+                                        param.required ? 'text-red-400' : 'text-gray-700 dark:text-slate-300',
                                         'ml-2',
                                       )}
                                     >
@@ -309,7 +307,7 @@ export default function API_Dashboard() {
                                     </code>
                                   </td>
                                   <td
-                                    className='text-sm pb-4 pt-2 font-normal text-gray-500 dark:text-slate-300'
+                                    className='text-sm pb-4 pt-2 font-normal text-gray-700 dark:text-slate-300'
                                     dangerouslySetInnerHTML={{
                                       __html: param.custom
                                         ? param.custom.description
@@ -344,7 +342,7 @@ export default function API_Dashboard() {
                               <code>{service.endpoint.url}</code>
                             </span>
                           </div>
-                          <div className='text-sm flex justify-between space-x-2 bg-slate-300 dark:bg-slate-600 px-4 py-2 font-medium text-gray-500 dark:text-slate-300'>
+                          <div className='text-sm flex justify-between space-x-2 bg-slate-300 dark:bg-slate-600 px-4 py-2 font-medium text-gray-600 dark:text-slate-300'>
                             <span className='uppercase'>Response</span> <span>{service.endpoint.response?.type}</span>
                           </div>
                           <div className='text-sm overflow-y-auto bg-slate-100 dark:bg-slate-800 rounded-b-md scrollbar'>
