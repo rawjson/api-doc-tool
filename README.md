@@ -6,7 +6,7 @@ Install all the necessary packages.
 
 ```bash
 npm i
-#
+# or
 yarn add
 ```
 
