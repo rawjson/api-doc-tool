@@ -1,4 +1,4 @@
-This is template created with NextJs and TailwindCss
+This is a template created with NextJs and TailwindCss
 
 ## Getting Started
 
