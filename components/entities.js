@@ -597,7 +597,7 @@ let entities = [
               id: 'prod_aUOuSXAFyNxko9gevukGm',
               status: 'DRAFT',
               title: 'Lorem ipsum dolor sit amet, consectetur ...',
-              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.....',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
               createdAt: 1654574527,
               price: [
                 {
